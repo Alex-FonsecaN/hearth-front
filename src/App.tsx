@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const getCards = async () => {
       try {
-        const response = await axios.get("http://localhost:3333/cards");
+        const response = await axios.get("https://hearth-back.onrender.com/cards");
         const data = response.data;
         console.log(data);
         const cards = data.cards.filter((card: any) => card.img);
@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     const checkUserIP = async () => {
       try {
-        const response = await axios.get("http://localhost:3333/games/check-ip");
+        const response = await axios.get("https://hearth-back.onrender.com/games/check-ip");
         const data = response.data;
 
         if (!data.canPlay) {
@@ -126,7 +126,7 @@ function App() {
       card.name.toLowerCase() === randomCard.name.toLowerCase()
     ) {
       try {
-        await axios.post('http://localhost:3333/games/win-game', { wonAt: new Date() });
+        await axios.post('https://hearth-back.onrender.com/games/win-game', { wonAt: new Date() });
         setCanPlay(false);
       } catch (error) {
         console.error('Erro ao atualizar wonAt:', error);
@@ -141,7 +141,7 @@ function App() {
 
     // Atualizar o campo usedCards no servidor
   try {
-    await axios.post('http://localhost:3333/games/update-used-cards', { cardId: card.cardId });
+    await axios.post('https://hearth-back.onrender.com/games/update-used-cards', { cardId: card.cardId });
   } catch (error) {
     console.error('Erro ao atualizar usedCards:', error);
   }
@@ -175,7 +175,6 @@ function App() {
                     health={card.health || 0}
                     attack={card.attack || 0}
                     durability={card.durability || 0}
-                    set={card.cardSet}
                     cardClass={card.playerClass}
                     cardReference={randomCard}
                   />

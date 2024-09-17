@@ -7,7 +7,6 @@ interface CardReference {
     health?: number;
     attack?: number;
     durability?: number;
-    cardSet: string;
     playerClass: string;
     
 }
@@ -18,12 +17,11 @@ interface GuessRowProps {
     health?: number;
     attack?: number;
     durability: number;
-    set: string;
     cardClass: string;
     cardReference: CardReference;
 }
 
-const GuessRow: React.FC<GuessRowProps> = ({ logo, manaCost, rarity, health, attack, durability, set, cardClass, cardReference }) => {
+const GuessRow: React.FC<GuessRowProps> = ({ logo, manaCost, rarity, health, attack, durability, cardClass, cardReference }) => {
     return (
         <div className="flex justify-between items-center gap-5 scroll-auto">
             <div className='flex flex-col justify-start items-center gap-2'>
