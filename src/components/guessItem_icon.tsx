@@ -1,3 +1,22 @@
+import Common from '../assets/images/normalGem.png';
+import Rare from '../assets/images/rareGem.png';
+import Epic from '../assets/images/epicGem.png'
+import Legendary from '../assets/images/legendaryGem.png'
+import Priest from '../assets/images/priest.png'
+import Mage from '../assets/images/mage.png'
+import Hunter from '../assets/images/hunter_.png'
+import Warlock from '../assets/images/warlock.png'
+import Paladin from '../assets/images/paladin.png'
+import Warrior from '../assets/images/warrior.png'
+import DeathKnight from '../assets/images/deathknight.png'
+import Shaman from '../assets/images/shaman.png'
+import Rogue from '../assets/images/rogue.png';
+import DemonHunter from '../assets/images/demonhunter.png';
+import Druid from '../assets/images/druid.png';
+import X from '../assets/images/Transparent_X.png';
+
+
+
 interface GuessItemImageProps {
     value: string;
     refValue: string;
@@ -6,37 +25,37 @@ interface GuessItemImageProps {
 const checkImage = (value: string) => {
     switch (value) {
         case "Common":
-            return "/images/normalGem.png"; // Caminho relativo à pasta `public`
+            return Common; // Caminho relativo à pasta `public`
         case "Rare":
-            return "/images/rareGem.png";
+            return Rare;
         case "Epic":
-            return "/images/epicGem.png";
+            return Epic;
         case "Legendary":
-            return "/images/legendaryGem.png";
+            return Legendary;
         case "Priest":
-            return "/images/priest.png";
+            return Priest;
         case "Mage":
-            return "/images/mage.png";
+            return Mage;
         case "Hunter":
-            return "/images/hunter_.png";
+            return Hunter;
         case "Warlock":
-            return "/images/warlock.png";
+            return Warlock;
         case "Paladin":
-            return "/images/paladin.png";
+            return Paladin;
         case "Warrior":
-            return "/images/warrior.png";
+            return Warrior;
         case "Death Knight":
-            return "/images/deathknight.png";
+            return DeathKnight;
         case "Shaman":
-            return "/images/shaman.png";
+            return Shaman;
         case "Rogue":
-            return "/images/rogue.png";
+            return Rogue;
         case "Demon Hunter":
-            return "/images/demonhunter.png";
+            return DemonHunter;
         case "Druid":
-            return "/images/druid.png"
+            return Druid;
         default:
-            return "/images/Transparent_X.png";
+            return X;
     }
 }
 
