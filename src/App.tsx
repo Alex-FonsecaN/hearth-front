@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const getCards = async () => {
       try {
-        const response = await axios.get("https://hearth-back.onrender.com/cards");
+        const response = await axios.get("http://localhost:3333/cards");
         const data = response.data;
         console.log(data);
         const cards = data.cards.filter((card: any) => card.img);
@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     const checkUserIP = async () => {
       try {
-        const response = await axios.get("https://hearth-back.onrender.com/games/check-ip");
+        const response = await axios.get("http://localhost:3333/games/check-ip");
         const data = response.data;
 
         if (!data.canPlay) {
@@ -126,7 +126,7 @@ function App() {
       card.name.toLowerCase() === randomCard.name.toLowerCase()
     ) {
       try {
-        await axios.post('https://hearth-back.onrender.com/games/win-game', { wonAt: new Date() });
+        await axios.post('http://localhost:3333/games/win-game', { wonAt: new Date() });
         setCanPlay(false);
       } catch (error) {
         console.error('Erro ao atualizar wonAt:', error);
@@ -141,14 +141,14 @@ function App() {
 
     // Atualizar o campo usedCards no servidor
   try {
-    await axios.post('https://hearth-back.onrender.com/games/update-used-cards', { cardId: card.cardId });
+    await axios.post('http://localhost:3333/games/update-used-cards', { cardId: card.cardId });
   } catch (error) {
     console.error('Erro ao atualizar usedCards:', error);
   }
   };
 
   return (
-    <main className="flex w-full h-full justify-center bg-[url('../../wallpaper.jpg')] bg-cover bg-no-repeat scroll-auto">
+    <main className="flex w-full h-full justify-center bg-[url('/wallpaper.jpg')] bg-cover bg-no-repeat scroll-auto">
       {randomCard && (
         <div className="w-11/12 max-w-96 h-full flex flex-col flex-initial items-center">
           <h1>Carta de hoje: {randomCard.name}</h1>
@@ -162,7 +162,7 @@ function App() {
             canPlay={canPlay}
           />
           {randomCard && (
-            <div className="w-full overflow-auto min-h-48 h-56 p-3 mt-3 custom-scrollbar bg-amber-700 bg-opacity-45 rounded-md">
+            <div className="w-full overflow-auto min-h-48 h-64 p-3 mt-3 custom-scrollbar bg-amber-700 bg-opacity-45 rounded-md">
               {selectedCards
                 .slice()
                 .reverse()
@@ -182,7 +182,7 @@ function App() {
             </div>
           )}
 
-          <div className="w-10/12 h-14 min-h-24 flex justify-center items-center mt-4 absolute bottom-0 bg-blue-200">
+          {/* <div className="w-10/12 h-14 min-h-24 flex justify-center items-center mt-4 absolute bottom-0 bg-blue-200">
             <ins
               key={`ad-${Date.now()}`} // Chave única para cada anúncio
               className="adsbygoogle"
@@ -196,7 +196,7 @@ function App() {
               data-ad-slot="XXXXXXXXXX"
               data-ad-format="auto"
             ></ins>
-          </div>
+          </div> */}
         </div>
       )}
     </main>
